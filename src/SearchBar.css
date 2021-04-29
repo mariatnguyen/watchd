@@ -3,18 +3,24 @@
   justify-content: space-between;
   width: 100%;
   height: 30px;
-  border-radius: 2px;
-  background-color: #ffffff;
+  border-radius: 20px;
+  background-color: #1c2e42;
 }
 
 .search-bar__input {
   flex-grow: 1;
   padding: 5px 10px 5px 10px;
   border: 0;
-  border-radius: 2px 0 0 2px;
+  border-radius: 20px;
   font-size: 16px;
   font-weight: 400;
-  background-color: #ffffff;
+  background-color: #1c2e42;
+  color: #8798aa;
+}
+
+.search-bar__input::placeholder {
+  color: #8798aa;
+  opacity: 0.5;
 }
 
 .search-bar__input:focus {
@@ -23,7 +29,8 @@
 }
 
 .search-bar__button {
-  padding: 5px;
+  padding: 5px 10px 5px 10px;
   border: 0;
   opacity: 0.7;
+  cursor: pointer;
 }

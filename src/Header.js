@@ -8,7 +8,7 @@ export default class Header extends Component {
         <div className="header__logo-container">
           <a href="/watchd/"><img
             className="header__logo"
-            src="./images/Watchd.svg"
+            src="./images/watchd.svg"
             alt="Watchd"
             width="250"
             height="auto"

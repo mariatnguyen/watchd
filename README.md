@@ -4,6 +4,11 @@ Watchd is an application built on [React](http://reactjs.org/) that uses the [Th
 
 Work in progress...
 
+### Need to do
+
+* Include functionality to add movies
+* When input is empty, it produces an undefined error
+
 ## Install
 
 ```bash

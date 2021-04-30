@@ -6,13 +6,15 @@ export default class Header extends Component {
     return (
       <header className="header">
         <div className="header__logo-container">
-          <img
+          <a href="/watchd/"><img
             className="header__logo"
             src="./images/Watchd.svg"
             alt="Watchd"
             width="250"
             height="auto"
-          /></div>
+          />
+          </a>
+          </div>
       </header>
     )
   };

@@ -1,0 +1,104 @@
+.search-results {
+    min-height: 60vh;
+    margin-bottom: 50px;
+}
+
+.search-results__movies {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 80px;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 20px;
+}
+
+.search-results__movie {
+    flex-basis: 25%;
+    width: 25%;
+    padding: 20px;
+}
+
+.search-results__movie-image-wrapper {
+    width: auto;
+    border-radius:10px;
+    overflow: hidden;
+}
+
+.search-results__movie-image {
+    display: block;
+}
+
+.search-results__movie-description {
+    padding-top: 20px;
+}
+
+.search-results__movie-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e2e2e2;
+}
+
+.search-results__movie-rating {
+    font-size: 16px;
+    color: #e2e2e2;
+    padding-top: 5px;
+}
+
+.search-results__movie-release-date,
+.search-results__movie-genres,
+.search-results__movie-genre {
+    font-size: 16px;
+    color: #8798aa;
+    padding-top: 5px;
+}
+
+.search-results__movie-genre:after {
+    content: ', '
+}
+.search-results__movie-genres > span:last-child:after {
+    content: ''
+}
+
+@media screen and (max-width: 769px) {
+    .search-results__movie {
+        flex-basis: 33.33%;
+        width: 33.33%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .search-results__movies {
+        display: block;
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+    }
+    .search-results__movie {
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .search-results__movie-image-wrapper {
+        width: 120px;
+        min-width: 120px;
+    }
+    .search-results__movie-description {
+        padding: 0 0 0 20px;
+    }
+
+    .search-results__movie-title {
+        font-size: 16px;
+    }
+    
+    .search-results__movie-rating, 
+    .search-results__movie-release-date,
+    .search-results__movie-genres,
+    .search-results__movie-genre {
+        font-size: 12px;
+    }    
+}

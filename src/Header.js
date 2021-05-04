@@ -10,10 +10,6 @@ export default class Header extends Component {
             <img
             src="./images/watchd.svg"
             className="header__logo"
-<<<<<<< HEAD
-=======
-            src="./images/watchd.svg"
->>>>>>> 13812b8b7a793aaf76c3970af329c4dc4edea0b6
             alt="Watchd"
             width="250"
             height="auto"

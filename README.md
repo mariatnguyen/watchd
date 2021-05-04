@@ -7,7 +7,7 @@ Work in progress...
 ### Need to do
 
 * Include functionality to add movies
-* When input is empty, it produces an undefined error
+* Fix blank pages from search 
 
 ## Install
 

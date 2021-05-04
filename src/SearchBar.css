@@ -3,6 +3,7 @@
   max-width: 300px;
   padding: 20px;
   float: right;
+  clear: both;
 }
 
 .search-bar__field {
@@ -53,5 +54,8 @@
     margin: auto;
     padding: 0px 20px 20px 20px;
     float: none;
+  }
+  .search-bar__input {
+    width: 100%;
   }
 }

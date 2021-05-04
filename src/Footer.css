@@ -4,6 +4,7 @@
     bottom: 10px;
     margin: auto;
     text-align: center;
+    clear: both;
 }
 
 .footer__credit,
@@ -19,6 +20,5 @@
 .footer__github a {
     font-size: 12px;
     text-decoration: none;
-    color: #fff;
-    opacity: 0.4;
+    color: #6e7580;
 }

@@ -1,0 +1,17 @@
+.watched-list {
+    min-height: 57.1vh;
+    margin-bottom: 50px;
+}
+.watched-list__empty {
+    margin-top: 100px;
+    text-align: center;
+    color: #8798aa;
+}
+.watched-list__empty h4 {
+    color: #8798aa;
+    font-size: 16px;
+    font-weight: 200;
+}
+.watched-list__empty h4 a {
+    color: #8798aa;
+}

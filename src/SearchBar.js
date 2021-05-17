@@ -20,16 +20,16 @@ export default class SearchBar extends PureComponent {
   render() {
     return (
       <div className="search-bar">
-        <div className="search-bar__field">
+        <form className="search-bar__field">
           <input ref={this.searchInput} id="search-bar__input" className="search-bar__input" type="text" placeholder="Search" onKeyDown={this.handleEnter} />
-          <div className="search-bar__button" onClick={(e) => {this.props.setSearchTerm(this.searchInput.current.value)}}>
+          <button className="search-bar__button" onClick={(e) => {e.preventDefault();this.props.setSearchTerm(this.searchInput.current.value)}}>
             <img src="./images/search.svg"
               alt="search"
               width="20"
               height="20"
             />
-          </div>
-        </div>
+          </button>
+        </form>
       </div>
     );
   }

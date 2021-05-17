@@ -17,8 +17,8 @@ export default class Header extends Component {
           </a>
           </div>
       <nav className="navigation">
-        <div className="navigation__search">Search</div>
-        <div className="navigation__watched">Watched</div>
+        <div className={this.props.navigation === "Search" ? "navigation__link navigation__link--active" : "navigation__link"} onClick={(e) => this.props.setNavigation(e)}>Search</div>
+        <div className={this.props.navigation === "Watched" ? "navigation__link navigation__link--active" : "navigation__link"} onClick={(e) => this.props.setNavigation(e)}>Watched</div>
       </nav>
       </header>
     )

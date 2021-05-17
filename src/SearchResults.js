@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import Pagination from './Pagination.js';
+import NothingFound from './NothingFound.js';
 import Moment from 'react-moment';
 import Genres from './Genres.json';
 import "./SearchResults.css";
@@ -32,6 +33,8 @@ export default class SearchResults extends PureComponent {
           </div>
           <div className="search-results__movie-release-date"><Moment format="MMM Do, YYYY">{movie.release_date}</Moment></div>
           <div className="search-results__movie-genres">{allGenres}</div>
+          <div className="search-results__movie-add">
+          </div>
         </div>
       </div>
     }
@@ -48,7 +51,8 @@ export default class SearchResults extends PureComponent {
         <div className="search-results__movies">
           {this.props.searchResults.length !== 0 ? this.props.searchResults.results.map(this.listMovies) : null}
         </div>
-        {this.props.searchResults.length !== 0 && <Pagination setPage={this.props.setPage} searchPage={this.props.searchPage} prevPage={this.props.prevPage} nextPage={this.props.nextPage} searchResults={this.props.searchResults} />}
+        {this.props.searchResults.length !== 0 && this.props.searchResults.results.length !== 0 ? <Pagination setPage={this.props.setPage} searchPage={this.props.searchPage} prevPage={this.props.prevPage} nextPage={this.props.nextPage} searchResults={this.props.searchResults} /> : null}
+        {this.props.searchResults.length !== 0 && this.props.searchResults.results.length === 0 ? <NothingFound/> : null}
       </div>
     );
   }

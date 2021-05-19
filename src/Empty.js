@@ -6,7 +6,7 @@ export default class Watched extends PureComponent {
     return (
       <div className="watched-list__empty">
         <h3>Your watched list is empty.</h3>
-        <h4><a href="#" onClick={(e) => this.props.setNavigation(e)}>Search</a> for movies to add to get started.</h4>
+        <h4><button className="watched-list__empty-search" onClick={(e) => this.props.setNavigation(e)}>Search</button> for movies to add to get started.</h4>
       </div>
     );
   }

@@ -13,15 +13,15 @@ export default class SearchResults extends PureComponent {
         movie.genre_ids.map(
           function (genre_id) {
             if (id === genre_id.toString()) {
-              allGenres.push(<span className="search-results__movie-genre" key={`${genre}-${id}`}>{genre}</span>);
+              allGenres.push(<span className="search-results__movie-genre" key={`${movie-id}-${genre}`}>{genre}</span>);
             } 
             return null
           });
         return allGenres;
       });
-
+    
     if (movie.poster_path !== null && movie.vote_average !== 0) {
-      return <div className="search-results__movie" key={`${movie.title}-${index}`}>
+      return <div className="search-results__movie" key={movie.id}>
         <div className="search-results__movie-image-wrapper">
           <img className="search-results__movie-image" src={"https://image.tmdb.org/t/p/w500" + movie.poster_path} alt={movie.title} width="100%" height="auto" />
         </div>
@@ -33,7 +33,7 @@ export default class SearchResults extends PureComponent {
           </div>
           <div className="search-results__movie-release-date"><Moment format="MMM Do, YYYY">{movie.release_date}</Moment></div>
           <div className="search-results__movie-genres">{allGenres}</div>
-          <div className="search-results__movie-add">
+          <div className={this.props.watched.includes(movie) ? "search-results__movie-add--active" : "search-results__movie-add--inactive"} onClick={!this.props.watched.includes(movie) ? (e) => this.props.setWatched(e,movie) : undefined}>
           </div>
         </div>
       </div>

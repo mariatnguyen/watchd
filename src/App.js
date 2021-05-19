@@ -21,6 +21,8 @@ class App extends Component {
     this.setPage = this.setPage.bind(this);
     this.prevPage = this.prevPage.bind(this);
     this.nextPage = this.nextPage.bind(this);
+    this.setWatched = this.setWatched.bind(this);
+    this.removeWatched = this.removeWatched.bind(this);
   }
 
   setNavigation(event) {
@@ -64,7 +66,6 @@ class App extends Component {
   }
 
   //pagination
-
   prevPage() {
     if (this.state.searchPage > 1) {
       this.setState(
@@ -81,23 +82,29 @@ class App extends Component {
     }
   }
 
-  //adding to watched
-
-  setWatched(event) {
-    this.setState(
-      {
-        watched: []
-      }
-    )
+  //customize watched
+  setWatched(event,movie) {
+        this.setState(
+          {
+            watched: !this.state.watched.includes(movie) ? [...this.state.watched, movie] : this.state.watched
+          }
+        )
   }
 
+  removeWatched(event,movie) {
+    this.setState(
+      {
+        watched: [...this.state.watched.filter(m => m !== movie)]
+      }
+    )
+}
   render() {
     return (
       <div className="App">
         <Header setNavigation={this.setNavigation} navigation={this.state.navigation} />
         {this.state.navigation === "Search" && <SearchBar setSearchTerm={this.setSearchTerm} />}
-        {this.state.navigation === "Search" && <SearchResults setPage={this.setPage} prevPage={this.prevPage} nextPage={this.nextPage} searchTerm={this.state.searchTerm} searchResults={this.state.searchResults} searchPage={this.state.searchPage} />}
-        {this.state.navigation === "Watched" && <WatchedList watched={this.state.watched} setNavigation={this.setNavigation}/>}
+        {this.state.navigation === "Search" && <SearchResults setPage={this.setPage} prevPage={this.prevPage} nextPage={this.nextPage} searchTerm={this.state.searchTerm} searchResults={this.state.searchResults} searchPage={this.state.searchPage} setWatched={this.setWatched} watched={this.state.watched} />}
+        {this.state.navigation === "Watched" && <WatchedList watched={this.state.watched} setNavigation={this.setNavigation} removeWatched={this.removeWatched}/>}
         <Footer />
       </div>
     )

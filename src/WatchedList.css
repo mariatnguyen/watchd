@@ -1,6 +1,81 @@
 .watched-list {
     min-height: 57.1vh;
-    margin-bottom: 50px;
+    margin: 20px 50px 50px 50px;
+}
+.watched-list__movies {
+    display: block;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+}
+.watched-list__movie {
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px 0 20px 0;
+}
+.watched-list__movie-image-wrapper {
+    width: 220px;
+    min-width: 220px;
+    max-width: 220px;
+    position: relative;
+    width: auto;
+    border-radius:10px;
+    overflow: hidden;
+}
+.watched-list__movie-image {
+    display: block;
+}
+.watched-list__movie-description {
+    padding: 0 0 0 30px;
+}
+.watched-list__movie-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e2e2e2;
+}
+.watched-list__movie-rating {
+    font-size: 16px;
+    color: #e2e2e2;
+    padding-top: 5px;
+}
+.watched-list__movie-release-date,
+.watched-list__movie-genres,
+.watched-list__movie-genre {
+    font-size: 16px;
+    color: #8798aa;
+    padding-top: 5px;
+}
+.watched-list__movie-overview {
+    padding: 20px 0 20px 0;
+    color: #e2e2e2;
+}
+.watched-list__movie-genre:after {
+    content: ', '
+}
+.watched-list__movie-genres > span:last-child:after {
+    content: ''
+}
+.watched-list__movie-remove {
+    width: 100px;
+    height: 38px;
+    min-width: 100px;
+    min-height: 38px;
+    padding: 10px;
+    margin: 2px;
+    border-radius: 30px;
+    font-size: 12px;
+    text-align:center;
+    line-height: 20px;
+    color: #fff;
+    background-color:#03090f;
+    cursor: pointer;
+}
+.watched-list__movie-remove:before {
+    content: 'Remove ✕';
 }
 .watched-list__empty {
     margin-top: 100px;
@@ -8,10 +83,64 @@
     color: #8798aa;
 }
 .watched-list__empty h4 {
-    color: #8798aa;
     font-size: 16px;
     font-weight: 200;
-}
-.watched-list__empty h4 a {
     color: #8798aa;
+}
+.watched-list__empty-search {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 200;
+    color: #8798aa;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    text-decoration: underline;
+    background-color: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 769px) {
+    .watched-list__movie-image-wrapper {
+        width: 150px;
+        min-width: 150px;
+        max-width: 150px;
+    }   
+}
+
+@media screen and (max-width: 480px) {
+    .watched-list {
+        margin: 10px 20px 20px 20px;
+    }
+    .watched-list__movie {
+        display: block;
+    }
+    .watched-list__movie-image-wrapper {
+        margin: auto;
+    }
+    .watched-list__movie-description {
+        margin: 0;
+        padding: 10px 0 10px 0;
+    }
+    .watched-list__movie-title {
+        font-size: 16px;
+    }
+    .watched-list__movie-rating, 
+    .watched-list__movie-release-date,
+    .watched-list__movie-genres,
+    .watched-list__movie-genre,
+    .watched-list__movie-overview {
+        font-size: 12px;
+    }    
+    .watched-list__movie-remove {
+        height: 25px;
+        min-height: 25px;
+        width: 70px;
+        margin: auto;
+        padding: 7px 0 5px 0;
+        font-size: 11px;
+        line-height: 11px;
+        text-align: center;
+    }
 }

@@ -1,6 +1,8 @@
 .watched-list {
-    min-height: 57.1vh;
-    margin: 20px 50px 50px 50px;
+    position:relative;
+    clear:both;
+    min-height: 40vh;
+    margin: 50px 50px 50px 50px;
 }
 .watched-list__movies {
     display: block;
@@ -78,7 +80,7 @@
     content: 'Remove ✕';
 }
 .watched-list__empty {
-    margin-top: 100px;
+    margin-top: 200px;
     text-align: center;
     color: #8798aa;
 }
@@ -111,6 +113,7 @@
 
 @media screen and (max-width: 480px) {
     .watched-list {
+        min-height: 40vh;
         margin: 10px 20px 20px 20px;
     }
     .watched-list__movie {

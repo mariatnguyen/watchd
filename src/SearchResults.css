@@ -1,5 +1,4 @@
 .search-results {
-    min-height: 60vh;
     margin-bottom: 50px;
 }
 
@@ -140,7 +139,6 @@
     .search-results__movie-description {
         padding: 0 0 0 20px;
     }
-
     .search-results__movie-title {
         font-size: 16px;
     }

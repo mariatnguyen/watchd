@@ -13,9 +13,9 @@ export default class SearchBar extends PureComponent {
     }
   }
 
-  emptySearch(e) { 
+  /*emptySearch(e) { 
     console.log("empty")
-  }
+  }*/
 
   render() {
     return (

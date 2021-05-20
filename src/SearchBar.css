@@ -4,6 +4,7 @@
   padding: 20px;
   float: right;
   clear: both;
+  z-index: 99;
 }
 
 .search-bar__field {

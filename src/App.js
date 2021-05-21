@@ -28,6 +28,10 @@ class App extends Component {
     this.removeWatched = this.removeWatched.bind(this);
   }
 
+  componentWillMount() {
+    this.fetchIntro();
+  }
+
   setNavigation(event) {
     this.setState(
       {
@@ -39,7 +43,7 @@ class App extends Component {
   //intro
   fetchIntro() {
     const apiKey = process.env.REACT_APP_API_KEY;
-    let randomPage = Math.floor(Math.random() * (50));
+    let randomPage = Math.floor(Math.random() * (50 + 1));
     if (this.state.suggestedMovie.length === 0) {
     fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&without_genres=27&page=${randomPage}`)
       .then((url) => url.json())
@@ -120,7 +124,6 @@ class App extends Component {
   }
 
   render() {
-    this.fetchIntro();
     return (
       <div className="App">
         <Header setNavigation={this.setNavigation} navigation={this.state.navigation} />

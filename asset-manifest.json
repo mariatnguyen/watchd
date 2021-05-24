@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/watchd/static/css/main.651a8153.chunk.css",
-    "main.js": "/watchd/static/js/main.4da9b9b2.chunk.js",
-    "main.js.map": "/watchd/static/js/main.4da9b9b2.chunk.js.map",
+    "main.css": "/watchd/static/css/main.d7401f26.chunk.css",
+    "main.js": "/watchd/static/js/main.d80e9b26.chunk.js",
+    "main.js.map": "/watchd/static/js/main.d80e9b26.chunk.js.map",
     "runtime-main.js": "/watchd/static/js/runtime-main.69c4120f.js",
     "runtime-main.js.map": "/watchd/static/js/runtime-main.69c4120f.js.map",
-    "static/js/2.5d740e01.chunk.js": "/watchd/static/js/2.5d740e01.chunk.js",
-    "static/js/2.5d740e01.chunk.js.map": "/watchd/static/js/2.5d740e01.chunk.js.map",
+    "static/js/2.f7d5a62e.chunk.js": "/watchd/static/js/2.f7d5a62e.chunk.js",
+    "static/js/2.f7d5a62e.chunk.js.map": "/watchd/static/js/2.f7d5a62e.chunk.js.map",
     "index.html": "/watchd/index.html",
-    "static/css/main.651a8153.chunk.css.map": "/watchd/static/css/main.651a8153.chunk.css.map",
-    "static/js/2.5d740e01.chunk.js.LICENSE.txt": "/watchd/static/js/2.5d740e01.chunk.js.LICENSE.txt"
+    "static/css/main.d7401f26.chunk.css.map": "/watchd/static/css/main.d7401f26.chunk.css.map",
+    "static/js/2.f7d5a62e.chunk.js.LICENSE.txt": "/watchd/static/js/2.f7d5a62e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.69c4120f.js",
-    "static/js/2.5d740e01.chunk.js",
-    "static/css/main.651a8153.chunk.css",
-    "static/js/main.4da9b9b2.chunk.js"
+    "static/js/2.f7d5a62e.chunk.js",
+    "static/css/main.d7401f26.chunk.css",
+    "static/js/main.d80e9b26.chunk.js"
   ]
 }

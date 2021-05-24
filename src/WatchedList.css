@@ -159,4 +159,8 @@
         line-height: 11px;
         text-align: center;
     }
+    .watched-list__clear {
+        margin: 0;
+        text-align: center;
+    }
 }

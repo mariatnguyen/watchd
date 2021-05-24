@@ -14,6 +14,7 @@ Watchd is an application built on [React](http://reactjs.org/) that uses the [Th
 ### Need to do
 
 * Sometimes there are blank pages in search pages if the specific object (movie) isn't fully there on behalf of the API: image missing, overview missing. Find a way to skip these pages... 
+* "Are you sure" prompt on clearing all watched list 
 
 ## Install
 

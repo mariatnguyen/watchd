@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import SearchBar from "./SearchBar.js";
 import Pagination from './Pagination.js';
 import NothingFound from './NothingFound.js';
 import Moment from 'react-moment';
@@ -29,7 +30,7 @@ export default class SearchResults extends PureComponent {
           <div className="search-results__movie-title">{movie.title}</div>
           <div className="search-results__movie-rating">
             <span className="search-results__movie-stars">{Math.round(movie.vote_average) + "/10, "}</span>
-            <span className="search-results__movie-vote-vount">{movie.vote_average !== 1 ? movie.vote_count + " votes" : movie.vote_count + " vote"}</span>
+            <span className="search-results__movie-vote-vount">{movie.vote_average !== 1 ? this.numberWithCommas(movie.vote_count) + " votes" : movie.vote_count + " vote"}</span>
           </div>
           <div className="search-results__movie-release-date"><Moment format="MMM Do, YYYY">{movie.release_date}</Moment></div>
           <div className="search-results__movie-genres">{allGenres}</div>
@@ -40,6 +41,10 @@ export default class SearchResults extends PureComponent {
     }
   }
 
+  numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   render() {
     let pages = [];
     for (let i = 1; i <= this.props.searchResults.total_pages; i++) {
@@ -47,6 +52,8 @@ export default class SearchResults extends PureComponent {
     }
 
     return (
+      <>
+      <SearchBar setSearchTerm={this.props.setSearchTerm} />
       <div className="search-results">
         <div className="search-results__movies">
           {this.props.searchResults.length !== 0 ? this.props.searchResults.results.map(this.listMovies) : null}
@@ -54,6 +61,7 @@ export default class SearchResults extends PureComponent {
         {this.props.searchResults.length !== 0 && this.props.searchResults.results.length !== 0 ? <Pagination setPage={this.props.setPage} searchPage={this.props.searchPage} prevPage={this.props.prevPage} nextPage={this.props.nextPage} searchResults={this.props.searchResults} /> : null}
         {this.props.searchResults.length !== 0 && this.props.searchResults.results.length === 0 ? <NothingFound/> : null}
       </div>
+      </>
     );
   }
 }

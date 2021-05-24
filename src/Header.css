@@ -54,7 +54,7 @@
 
 @media screen and (min-width:1366px) {
     .header {
-        padding: 80px 20px 20px 20px;
+        padding: 40px 20px 20px 20px;
     }
   }
 
@@ -77,6 +77,10 @@
     }
     .header__logo-container {
         width: 100%;
+        float: none;
+    }
+    .navigation {
+        float: none;
     }
     .header__logo {
         margin: auto;

@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import Empty from "./Empty.js"
+import ClearWatched from "./ClearWatched.js"
 import Moment from 'react-moment';
 import Genres from './Genres.json';
 import "./WatchedList.css";
@@ -28,7 +29,7 @@ export default class Watched extends PureComponent {
           <div className="watched-list__movie-title">{movie.title}</div>
           <div className="watched-list__movie-rating">
             <span className="watched-list__movie-stars">{Math.round(movie.vote_average) + "/10, "}</span>
-            <span className="watched-list__movie-vote-vount">{movie.vote_average !== 1 ? movie.vote_count + " votes" : movie.vote_count + " vote"}</span>
+            <span className="watched-list__movie-vote-vount">{movie.vote_average !== 1 ? this.numberWithCommas(movie.vote_count) + " votes" : movie.vote_count + " vote"}</span>
           </div>
           <div className="watched-list__movie-release-date"><Moment format="MMM Do, YYYY">{movie.release_date}</Moment></div>
           <div className="watched-list__movie-genres">{allGenres}</div>
@@ -40,10 +41,15 @@ export default class Watched extends PureComponent {
     }
   }
 
+  numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   render() {
     return (
       <div className="watched-list">
         {this.props.watched.length !== 0 ? this.props.watched.map(this.listMovies) : <Empty setNavigation={this.props.setNavigation}/>}
+        {this.props.watched.length !== 0 && <ClearWatched clearWatched={this.props.clearWatched}/>}
       </div>
     );
   }

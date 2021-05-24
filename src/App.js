@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Header from "./Header.js";
 import Intro from "./Intro.js";
-import SearchBar from "./SearchBar.js";
 import SearchResults from "./SearchResults.js";
 import WatchedList from "./WatchedList.js";
 import Footer from "./Footer.js";
@@ -16,7 +15,7 @@ class App extends Component {
       searchTerm: "",
       searchPage: 1,
       searchResults: [],
-      watched: []
+      watched: JSON.parse(localStorage.getItem('watched')) || []
     }
     this.setNavigation = this.setNavigation.bind(this);
     this.fetchIntro = this.fetchIntro.bind(this);
@@ -26,9 +25,10 @@ class App extends Component {
     this.nextPage = this.nextPage.bind(this);
     this.setWatched = this.setWatched.bind(this);
     this.removeWatched = this.removeWatched.bind(this);
+    this.clearWatched = this.clearWatched.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.fetchIntro();
   }
 
@@ -43,17 +43,17 @@ class App extends Component {
   //intro
   fetchIntro() {
     const apiKey = process.env.REACT_APP_API_KEY;
-    let randomPage = Math.floor(Math.random() * (50 + 1));
+    let randomPage = Math.floor(Math.random() * (50) + 1);
     if (this.state.suggestedMovie.length === 0) {
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&without_genres=27&page=${randomPage}`)
-      .then((url) => url.json())
-      .then(res => {
-        let randomMovie = Math.floor(Math.random() * (res.results.length));
-        this.setState(
-          {suggestedMovie: res.results[randomMovie]}
-        )
-      })
-      .catch(error => console.log(error));
+      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&without_genres=27&page=${randomPage}`)
+        .then((url) => url.json())
+        .then(res => {
+          let randomMovie = Math.floor(Math.random() * (res.results.length));
+          this.setState(
+            { suggestedMovie: res.results[randomMovie] }
+          )
+        })
+        .catch(error => console.log(error));
     }
   }
 
@@ -66,7 +66,7 @@ class App extends Component {
           searchPage: 1
         }, () => { this.startSearch(this.state.searchTerm, this.state.searchPage) }
       );
-    } 
+    }
   }
 
   setPage(page) {
@@ -107,15 +107,15 @@ class App extends Component {
   }
 
   //customize watched
-  setWatched(event,movie) {
-        this.setState(
-          {
-            watched: !this.state.watched.includes(movie) ? [...this.state.watched, movie] : this.state.watched
-          }
-        )
+  setWatched(event, movie) {
+    this.setState(
+      {
+        watched: !this.state.watched.includes(movie) ? [...this.state.watched, movie] : this.state.watched
+      }
+    )
   }
 
-  removeWatched(event,movie) {
+  removeWatched(event, movie) {
     this.setState(
       {
         watched: [...this.state.watched.filter(m => m !== movie)]
@@ -123,14 +123,23 @@ class App extends Component {
     )
   }
 
+  clearWatched() {
+    this.setState(
+      {
+        watched: []
+      }
+    )
+    localStorage.clear();
+  }
+
   render() {
+    localStorage.setItem("watched", JSON.stringify(this.state.watched));
     return (
       <div className="App">
         <Header setNavigation={this.setNavigation} navigation={this.state.navigation} />
-        {this.state.navigation === "Search" && <SearchBar setSearchTerm={this.setSearchTerm} />}
-        {this.state.navigation === "Search" && this.state.searchTerm.length === 0 && this.state.suggestedMovie.backdrop_path ? <Intro suggestedMovie={this.state.suggestedMovie} setWatched={this.setWatched} watched={this.state.watched} /> : null}
-        {this.state.navigation === "Search" && this.state.searchTerm.length !== 0 ? <SearchResults setPage={this.setPage} prevPage={this.prevPage} nextPage={this.nextPage} searchTerm={this.state.searchTerm} searchResults={this.state.searchResults} searchPage={this.state.searchPage} setWatched={this.setWatched} watched={this.state.watched} /> : null}
-        {this.state.navigation === "Watched" && <WatchedList watched={this.state.watched} setNavigation={this.setNavigation} removeWatched={this.removeWatched}/>}
+        {this.state.navigation === "Search" && this.state.searchTerm.length === 0 ? <Intro setSearchTerm={this.setSearchTerm} suggestedMovie={this.state.suggestedMovie} setWatched={this.setWatched} watched={this.state.watched} /> : null}
+        {this.state.navigation === "Search" && this.state.searchTerm.length !== 0 ? <SearchResults setSearchTerm={this.setSearchTerm} setPage={this.setPage} prevPage={this.prevPage} nextPage={this.nextPage} searchTerm={this.state.searchTerm} searchResults={this.state.searchResults} searchPage={this.state.searchPage} setWatched={this.setWatched} watched={this.state.watched} /> : null}
+        {this.state.navigation === "Watched" && <WatchedList watched={this.state.watched} setNavigation={this.setNavigation} removeWatched={this.removeWatched} clearWatched={this.clearWatched} />}
         <Footer />
       </div>
     )

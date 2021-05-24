@@ -1,9 +1,8 @@
 .footer {
-    position: relative;
+    position: absolute;
     width: 100%;
     bottom: 10px;
     margin: auto;
-    padding-top: 50px;
     text-align: center;
     clear: both;
     z-index: 100;

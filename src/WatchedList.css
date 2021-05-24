@@ -2,7 +2,7 @@
     position:relative;
     clear:both;
     min-height: 40vh;
-    margin: 50px 50px 50px 50px;
+    padding: 20px;
 }
 .watched-list__movies {
     display: block;
@@ -53,6 +53,7 @@
 }
 .watched-list__movie-overview {
     padding: 20px 0 20px 0;
+    font-size: 14px;
     color: #e2e2e2;
 }
 .watched-list__movie-genre:after {
@@ -80,7 +81,10 @@
     content: 'Remove ✕';
 }
 .watched-list__empty {
-    margin-top: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     color: #8798aa;
 }
@@ -102,6 +106,16 @@
     border: none;
     cursor: pointer;
 }
+.watched-list__clear {
+    margin: 10px 0 10px 0;
+    font-size: 12px;
+    color: #8798aa;
+    text-align: right;
+    cursor: pointer;
+}
+.watched-list__clear:hover {
+    color: #fff;
+}
 
 @media screen and (max-width: 769px) {
     .watched-list__movie-image-wrapper {
@@ -114,7 +128,7 @@
 @media screen and (max-width: 480px) {
     .watched-list {
         min-height: 40vh;
-        margin: 10px 20px 20px 20px;
+        padding: 10px 20px 20px 20px;
     }
     .watched-list__movie {
         display: block;

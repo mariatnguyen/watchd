@@ -75,6 +75,7 @@ class App extends Component {
         searchPage: page
       }, () => { this.startSearch(this.state.searchTerm, this.state.searchPage) }
     )
+    this.scrollToTop();
   }
 
   startSearch(searchTerm, searchPage) {
@@ -95,6 +96,7 @@ class App extends Component {
       this.setState(
         prevState => ({ searchPage: prevState.searchPage - 1 }), () => { this.startSearch(this.state.searchTerm, this.state.searchPage) }
       )
+      this.scrollToTop();
     }
   }
 
@@ -103,7 +105,15 @@ class App extends Component {
       this.setState(
         prevState => ({ searchPage: prevState.searchPage + 1 }), () => { this.startSearch(this.state.searchTerm, this.state.searchPage) }
       )
+      this.scrollToTop();
     }
+  }
+
+  scrollToTop() {
+    window.scroll({
+      top:0,
+      behavior:'smooth'
+    })
   }
 
   //customize watched

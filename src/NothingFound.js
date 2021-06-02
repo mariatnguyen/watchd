@@ -5,7 +5,7 @@ export default class NothingFound extends PureComponent {
   render() {
     return (
       <div className="search-results__nothing-found">
-        <h1>Nothing found. 👀</h1>
+        <h2 class="search-results__nothing-found-header">Nothing found. 👀</h2>
         <h3>Try searching again.</h3>
       </div>
     );

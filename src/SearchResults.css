@@ -109,6 +109,9 @@
     text-align: center;
     color: #8798aa;
 }
+.search-results__nothing-found-header {
+    font-size: 32px;
+}
 
 @media screen and (max-width: 769px) {
     .search-results__movie {
@@ -181,5 +184,8 @@
         line-height: 11px;
         text-align: left;
         background-color: transparent;
+    }
+    .search-results__nothing-found-header {
+        font-size: 22px;
     }
 }
